@@ -13,7 +13,7 @@
       <link rel="stylesheet" href="assets/css/photon.min.css">
 
       <!-- Javascript -->
-      <script src="assets/js/menu.js" charset="utf-8"></script>
+      <!-- <script src="assets/js/menu.js" charset="utf-8"></script> -->
 </head>
 
 <body>
@@ -71,124 +71,15 @@
             <p>Drop your list of urls here</p>
             <button id="fileUpload">Upload</button>
           </div>
-          <table class="table-striped">
+          <table class="table-striped" id="results-table">
             <thead>
               <tr>
-                <th>Name</th>
-                <th>Kind</th>
-                <th>Date Modified</th>
-                <th>Author</th>
+                <th>URL</th>
+                <th>Status</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>bars.scss</td>
-                <td>Document</td>
-                <td>Oct 13, 2015</td>
-                <td>connors</td>
-              </tr>
-              <tr>
-                <td>base.scss</td>
-                <td>Document</td>
-                <td>Oct 13, 2015</td>
-                <td>connors</td>
-              </tr>
-              <tr>
-                <td>button-groups.scss</td>
-                <td>Document</td>
-                <td>Oct 13, 2015</td>
-                <td>connors</td>
-              </tr>
-              <tr>
-                <td>buttons.scss</td>
-                <td>Document</td>
-                <td>Oct 13, 2015</td>
-                <td>connors</td>
-              </tr>
-              <tr>
-                <td>docs.scss</td>
-                <td>Document</td>
-                <td>Oct 13, 2015</td>
-                <td>connors</td>
-              </tr>
-              <tr>
-                <td>forms.scss</td>
-                <td>Document</td>
-                <td>Oct 13, 2015</td>
-                <td>connors</td>
-              </tr>
-              <tr>
-                <td>grid.scss</td>
-                <td>Document</td>
-                <td>Oct 13, 2015</td>
-                <td>connors</td>
-              </tr>
-              <tr>
-                <td>icons.scss</td>
-                <td>Document</td>
-                <td>Oct 13, 2015</td>
-                <td>connors</td>
-              </tr>
-              <tr>
-                <td>images.scss</td>
-                <td>Document</td>
-                <td>Oct 13, 2015</td>
-                <td>connors</td>
-              </tr>
-              <tr>
-                <td>lists.scss</td>
-                <td>Document</td>
-                <td>Oct 13, 2015</td>
-                <td>connors</td>
-              </tr>
-              <tr>
-                <td>mixins.scss</td>
-                <td>Document</td>
-                <td>Oct 13, 2015</td>
-                <td>connors</td>
-              </tr>
-              <tr>
-                <td>navs.scss</td>
-                <td>Document</td>
-                <td>Oct 13, 2015</td>
-                <td>connors</td>
-              </tr>
-              <tr>
-                <td>normalize.scss</td>
-                <td>Document</td>
-                <td>Oct 13, 2015</td>
-                <td>connors</td>
-              </tr>
-              <tr>
-                <td>photon.scss</td>
-                <td>Document</td>
-                <td>Oct 13, 2015</td>
-                <td>connors</td>
-              </tr>
-              <tr>
-                <td>tables.scss</td>
-                <td>Document</td>
-                <td>Oct 13, 2015</td>
-                <td>connors</td>
-              </tr>
-              <tr>
-                <td>tabs.scss</td>
-                <td>Document</td>
-                <td>Oct 13, 2015</td>
-                <td>connors</td>
-              </tr>
-              <tr>
-                <td>utilities.scss</td>
-                <td>Document</td>
-                <td>Oct 13, 2015</td>
-                <td>connors</td>
-              </tr>
-              <tr>
-                <td>variables.scss</td>
-                <td>Document</td>
-                <td>Oct 13, 2015</td>
-                <td>connors</td>
-              </tr>
+              
             </tbody>
           </table>
         </div>
@@ -198,6 +89,31 @@
 
   <script>
     const fs = require('fs');
+    
+    let url = 'https://developer.mozilla.org';
+    var status = 0;
+
+    fetch(url).then(
+      (response) => {
+        status = response.status;
+        render();
+    });
+
+    var table = document.querySelector('#results-table tbody');
+
+    function render(){
+      let snippet = `<tr>
+                    <td>${url}</td>
+                    <td>${status}</td>
+                  </tr>
+                    `;
+
+    table.innerHTML = snippet;
+
+    }
+
+    
+    
 
     var holder = document.getElementById('drop-zone');
 
@@ -216,8 +132,17 @@
     holder.ondrop = (ev) => {
       console.log("Drop");
       ev.preventDefault();
-      var data = ev.dataTransfer.items;
+      var data = ev.dataTransfer.files;
+      
       for (var i = 0; i < data.length; i += 1) {
+        
+        fs.readFile(data[0].path, 'utf-8', (err, result) => {
+          if (err) throw err;
+          console.log(result);
+       });
+
+        /*
+      
         if ((data[i].kind == 'file') &&
           (data[i].type.match('^text/plain'))) {
           // This item is the target node
@@ -238,7 +163,9 @@
           var f = data[i].getAsFile();
           console.log("... Drop: File ");
         }
+        */
       }
+      
       /*
       e.preventDefault();
 
