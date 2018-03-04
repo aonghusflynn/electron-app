@@ -3,18 +3,32 @@
   <head>
     <meta charset="UTF-8">
     <title>Hello World!</title>
+
+      <link rel="stylesheet" href="assets/css/global.css" />
+      <link rel="stylesheet" href="assets/css/github.css" />
+      <link rel="stylesheet" href="assets/css/main.css" />
   </head>
   <body>
-   <div id="nav-pane">
+   <div class="container">
+    <div id="nav">
     <nav>
       <ul>
         <li>Form Conf Checker</li>
-        <li>Form Conf Checker</li>
+        <li>URL Checker</li>
       </ul>
     </nav>
    </div>
    
-   <div id="content-pane"> </div>
+   <div id="content"> 
+    
+    <h1>Form Conf Checker</h1>
+    <div id="drop-zone">
+      <p>Drop your list of urls here</p>
+      <button id="fileUpload">Upload</button>
+    </div>
+
+   </div>
+  </div>
    <!--
     <h1>Hello World!</h1>
    -->
@@ -24,7 +38,75 @@
     Chromium <script>document.write(process.versions.chrome)</script>,
     and Electron <script>document.write(process.versions.electron)</script>.
     -->
-    <script>
+    
+      <script>
+            const fs = require('fs');
+        
+            var holder = document.getElementById('drop-zone');
+
+            holder.ondragover = () => {
+                return false;
+            };
+
+            holder.ondragleave = () => {
+                return false;
+            };
+
+            holder.ondragend = () => {
+                return false;
+            };
+
+            holder.ondrop = (ev) => {
+              console.log("Drop");
+              ev.preventDefault();
+              var data = ev.dataTransfer.items;
+              for (var i = 0; i < data.length; i += 1) {
+                if ((data[i].kind == 'file') && 
+                    (data[i].type.match('^text/plain'))) {
+                  // This item is the target node
+                  data[i].getAsFile(function (s){
+                    console.log(s); 
+                  });
+                } else if ((data[i].kind == 'string') && 
+                            (data[i].type.match('^text/html'))) {
+                  // Drag data item is HTML
+                  console.log("... Drop: HTML");
+                } else if ((data[i].kind == 'string') && 
+                            (data[i].type.match('^text/uri-list'))) {
+                  // Drag data item is URI
+                  console.log("... Drop: URI");
+                } else if ((data[i].kind == 'file') && 
+                            (data[i].type.match('^image/'))) {
+                  // Drag data item is an image file
+                  var f = data[i].getAsFile();
+                  console.log("... Drop: File ");
+                }
+              }
+          /*
+          e.preventDefault();
+
+                for (let f of e.dataTransfer.files) {
+                      console.log(e.dataTransfer.getData("text"));
+                      console.log('File(s) you dragged here: ', f.path)
+                      fs.readFile(f.path, 'utf-8', (err, data) => {
+                      if(err){
+                          alert("An error ocurred reading the file :" + err.message);
+                          return;
+                      }
+
+                      // Change how to handle the file content
+                      console.log("The file content is : " + data);
+                  });
+                }
+                
+                return false;
+                */
+            };
+
+
+        
+
+
       // You can also require other files to run in this process
       require('./renderer.js')
     </script>
