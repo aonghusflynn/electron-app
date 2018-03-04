@@ -1,114 +1,272 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Hello World!</title>
 
-      <link rel="stylesheet" href="assets/css/global.css" />
-      <link rel="stylesheet" href="assets/css/github.css" />
-      <link rel="stylesheet" href="assets/css/main.css" />
-  </head>
-  <body>
-   <div class="container">
-    <div id="nav">
-    <nav>
-      <ul>
-        <li>Form Conf Checker</li>
-        <li>URL Checker</li>
-      </ul>
-    </nav>
-   </div>
-   
-   <div id="content"> 
-    
-    <h1>Form Conf Checker</h1>
-    <div id="drop-zone">
-      <p>Drop your list of urls here</p>
-      <button id="fileUpload">Upload</button>
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World!</title>
+
+  <link rel="stylesheet" href="assets/css/global.css" />
+  <link rel="stylesheet" href="assets/css/github.css" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+
+      <!-- Stylesheets -->
+      <link rel="stylesheet" href="assets/css/photon.min.css">
+
+      <!-- Javascript -->
+      <script src="assets/js/menu.js" charset="utf-8"></script>
+</head>
+
+<body>
+  <div class="window">
+
+    <!-- .toolbar-header sits at the top of your app -->
+    <header class="toolbar toolbar-header">
+      <h1 class="title">Photon</h1>
+    </header>
+
+    <!-- Your app's content goes inside .window-content -->
+    <div class="window-content">
+      <div class="pane-group">
+        <div class="pane pane-sm sidebar">
+          <nav class="nav-group">
+            <h5 class="nav-group-title">Favorites</h5>
+            <span class="nav-group-item">
+              <span class="icon icon-home"></span>
+              connors
+            </span>
+            <span class="nav-group-item active">
+              <span class="icon icon-light-up"></span>
+              Photon
+            </span>
+            <span class="nav-group-item">
+              <span class="icon icon-download"></span>
+              Downloads
+            </span>
+            <span class="nav-group-item">
+              <span class="icon icon-folder"></span>
+              Documents
+            </span>
+            <span class="nav-group-item">
+              <span class="icon icon-window"></span>
+              Applications
+            </span>
+            <span class="nav-group-item">
+              <span class="icon icon-signal"></span>
+              AirDrop
+            </span>
+            <span class="nav-group-item">
+              <span class="icon icon-monitor"></span>
+              Desktop
+            </span>
+          </nav>
+        </div>
+
+
+
+
+
+        <div class="pane">
+          <h1>Form Conf Checker</h1>
+          <div id="drop-zone">
+            <p>Drop your list of urls here</p>
+            <button id="fileUpload">Upload</button>
+          </div>
+          <table class="table-striped">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Kind</th>
+                <th>Date Modified</th>
+                <th>Author</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>bars.scss</td>
+                <td>Document</td>
+                <td>Oct 13, 2015</td>
+                <td>connors</td>
+              </tr>
+              <tr>
+                <td>base.scss</td>
+                <td>Document</td>
+                <td>Oct 13, 2015</td>
+                <td>connors</td>
+              </tr>
+              <tr>
+                <td>button-groups.scss</td>
+                <td>Document</td>
+                <td>Oct 13, 2015</td>
+                <td>connors</td>
+              </tr>
+              <tr>
+                <td>buttons.scss</td>
+                <td>Document</td>
+                <td>Oct 13, 2015</td>
+                <td>connors</td>
+              </tr>
+              <tr>
+                <td>docs.scss</td>
+                <td>Document</td>
+                <td>Oct 13, 2015</td>
+                <td>connors</td>
+              </tr>
+              <tr>
+                <td>forms.scss</td>
+                <td>Document</td>
+                <td>Oct 13, 2015</td>
+                <td>connors</td>
+              </tr>
+              <tr>
+                <td>grid.scss</td>
+                <td>Document</td>
+                <td>Oct 13, 2015</td>
+                <td>connors</td>
+              </tr>
+              <tr>
+                <td>icons.scss</td>
+                <td>Document</td>
+                <td>Oct 13, 2015</td>
+                <td>connors</td>
+              </tr>
+              <tr>
+                <td>images.scss</td>
+                <td>Document</td>
+                <td>Oct 13, 2015</td>
+                <td>connors</td>
+              </tr>
+              <tr>
+                <td>lists.scss</td>
+                <td>Document</td>
+                <td>Oct 13, 2015</td>
+                <td>connors</td>
+              </tr>
+              <tr>
+                <td>mixins.scss</td>
+                <td>Document</td>
+                <td>Oct 13, 2015</td>
+                <td>connors</td>
+              </tr>
+              <tr>
+                <td>navs.scss</td>
+                <td>Document</td>
+                <td>Oct 13, 2015</td>
+                <td>connors</td>
+              </tr>
+              <tr>
+                <td>normalize.scss</td>
+                <td>Document</td>
+                <td>Oct 13, 2015</td>
+                <td>connors</td>
+              </tr>
+              <tr>
+                <td>photon.scss</td>
+                <td>Document</td>
+                <td>Oct 13, 2015</td>
+                <td>connors</td>
+              </tr>
+              <tr>
+                <td>tables.scss</td>
+                <td>Document</td>
+                <td>Oct 13, 2015</td>
+                <td>connors</td>
+              </tr>
+              <tr>
+                <td>tabs.scss</td>
+                <td>Document</td>
+                <td>Oct 13, 2015</td>
+                <td>connors</td>
+              </tr>
+              <tr>
+                <td>utilities.scss</td>
+                <td>Document</td>
+                <td>Oct 13, 2015</td>
+                <td>connors</td>
+              </tr>
+              <tr>
+                <td>variables.scss</td>
+                <td>Document</td>
+                <td>Oct 13, 2015</td>
+                <td>connors</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
-
-   </div>
   </div>
-   <!--
-    <h1>Hello World!</h1>
-   -->
-    <!-- All of the Node.js APIs are available in this renderer process. -->
-    <!--
-    We are using Node.js <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
-    -->
-    
-      <script>
-            const fs = require('fs');
-        
-            var holder = document.getElementById('drop-zone');
 
-            holder.ondragover = () => {
-                return false;
-            };
+  <script>
+    const fs = require('fs');
 
-            holder.ondragleave = () => {
-                return false;
-            };
+    var holder = document.getElementById('drop-zone');
 
-            holder.ondragend = () => {
-                return false;
-            };
+    holder.ondragover = () => {
+      return false;
+    };
 
-            holder.ondrop = (ev) => {
-              console.log("Drop");
-              ev.preventDefault();
-              var data = ev.dataTransfer.items;
-              for (var i = 0; i < data.length; i += 1) {
-                if ((data[i].kind == 'file') && 
-                    (data[i].type.match('^text/plain'))) {
-                  // This item is the target node
-                  data[i].getAsFile(function (s){
-                    console.log(s); 
-                  });
-                } else if ((data[i].kind == 'string') && 
-                            (data[i].type.match('^text/html'))) {
-                  // Drag data item is HTML
-                  console.log("... Drop: HTML");
-                } else if ((data[i].kind == 'string') && 
-                            (data[i].type.match('^text/uri-list'))) {
-                  // Drag data item is URI
-                  console.log("... Drop: URI");
-                } else if ((data[i].kind == 'file') && 
-                            (data[i].type.match('^image/'))) {
-                  // Drag data item is an image file
-                  var f = data[i].getAsFile();
-                  console.log("... Drop: File ");
-                }
-              }
-          /*
-          e.preventDefault();
+    holder.ondragleave = () => {
+      return false;
+    };
 
-                for (let f of e.dataTransfer.files) {
-                      console.log(e.dataTransfer.getData("text"));
-                      console.log('File(s) you dragged here: ', f.path)
-                      fs.readFile(f.path, 'utf-8', (err, data) => {
-                      if(err){
-                          alert("An error ocurred reading the file :" + err.message);
-                          return;
-                      }
+    holder.ondragend = () => {
+      return false;
+    };
 
-                      // Change how to handle the file content
-                      console.log("The file content is : " + data);
-                  });
-                }
-                
-                return false;
-                */
-            };
+    holder.ondrop = (ev) => {
+      console.log("Drop");
+      ev.preventDefault();
+      var data = ev.dataTransfer.items;
+      for (var i = 0; i < data.length; i += 1) {
+        if ((data[i].kind == 'file') &&
+          (data[i].type.match('^text/plain'))) {
+          // This item is the target node
+          data[i].getAsFile(function (s) {
+            console.log(s);
+          });
+        } else if ((data[i].kind == 'string') &&
+          (data[i].type.match('^text/html'))) {
+          // Drag data item is HTML
+          console.log("... Drop: HTML");
+        } else if ((data[i].kind == 'string') &&
+          (data[i].type.match('^text/uri-list'))) {
+          // Drag data item is URI
+          console.log("... Drop: URI");
+        } else if ((data[i].kind == 'file') &&
+          (data[i].type.match('^image/'))) {
+          // Drag data item is an image file
+          var f = data[i].getAsFile();
+          console.log("... Drop: File ");
+        }
+      }
+      /*
+      e.preventDefault();
+
+            for (let f of e.dataTransfer.files) {
+                  console.log(e.dataTransfer.getData("text"));
+                  console.log('File(s) you dragged here: ', f.path)
+                  fs.readFile(f.path, 'utf-8', (err, data) => {
+                  if(err){
+                      alert("An error ocurred reading the file :" + err.message);
+                      return;
+                  }
+
+                  // Change how to handle the file content
+                  console.log("The file content is : " + data);
+              });
+            }
+            
+            return false;
+            */
+    };
 
 
-        
 
 
-      // You can also require other files to run in this process
-      require('./renderer.js')
-    </script>
-  </body>
+
+    // You can also require other files to run in this process
+    require('./renderer.js')
+  </script>
+</body>
+
 </html>
